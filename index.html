@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Wifee Jii 💗</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #ff75ad;
+  --rose: #f34d98;
+  --purple: #a77bff;
+  --ink: #713754;
+  --glass: rgba(255,255,255,.72);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Nunito', sans-serif;
+  color: var(--ink);
+  background: linear-gradient(-45deg,
+    #ffe8f2, #f4eaff, #ffeef5, #eee8ff);
+  background-size: 400% 400%;
+  animation: gradientFlow 14s ease infinite;
+}
+
+button { font-family: inherit; }
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* DREAMY BACKGROUND */
+
+.aurora {
+  position: fixed;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  filter: blur(65px);
+  opacity: .4;
+  pointer-events: none;
+  z-index: 0;
+  animation: auroraDance 9s ease-in-out infinite alternate;
+}
+
+.aurora.one {
+  background: #ff9acb;
+  left: -90px;
+  top: 12%;
+}
+
+.aurora.two {
+  background: #b7a0ff;
+  right: -100px;
+  bottom: 10%;
+  animation-delay: -4s;
+}
+
+@keyframes auroraDance {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(45px,-35px) scale(1.25); }
+}
+
+/* FLOATING EMOJIS */
+
+.float-item {
+  position: fixed;
+  left: var(--x);
+  bottom: -60px;
+  font-size: var(--size);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatUp var(--duration) linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg) scale(.5); opacity: 0; }
+  12% { opacity: .8; }
+  80% { opacity: .65; }
+  100% { transform: translateY(-115vh) rotate(35deg) scale(1.25); opacity: 0; }
+}
+
+/* SPARKLES */
+
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 20;
+  font-size: 18px;
+  animation: sparkleOut .8s ease-out forwards;
+}
+
+@keyframes sparkleOut {
+  to {
+    transform: translate(var(--dx), var(--dy)) rotate(90deg) scale(0);
+    opacity: 0;
+  }
+}
+
+/* HEADER */
+
+header {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  padding: 25px 12px 5px;
+}
+
+.brand {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 32px;
+  color: #d44b88;
+  text-shadow: 0 3px 16px #ffadd0;
+  animation: brandGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes brandGlow {
+  to { text-shadow: 0 3px 24px #ff80b7; }
+}
+
+.subtitle {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-top: 7px;
+  color: #a87c9a;
+}
+
+/* NAVIGATION */
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 20px 10px;
+  position: relative;
+  z-index: 5;
+}
+
+.nav-btn {
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: 1px solid #ffffff;
+  background: rgba(255,255,255,.55);
+  color: #a34e78;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .3s, background .3s, box-shadow .3s;
+}
+
+.nav-btn:hover {
+  transform: translateY(-4px) rotate(-2deg);
+  box-shadow: 0 8px 20px #f7a4c64c;
+}
+
+.nav-btn.active {
+  color: white;
+  background: linear-gradient(135deg, #ff8bbe, #d86be5);
+  box-shadow: 0 6px 20px #dd69ad50;
+}
+
+/* PAGES */
+
+main {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 26px, 520px);
+  margin: 0 auto;
+  padding-bottom: 25px;
+}
+
+.page { display: none; }
+
+.page.active {
+  display: block;
+  animation: pageEntrance .65s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes pageEntrance {
+  from { opacity: 0; transform: translateY(25px) scale(.96); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* GLASS CARD */
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 21px;
+  text-align: center;
+  border-radius: 32px;
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,.95);
+  box-shadow: 0 24px 70px #c874a326, inset 0 1px 0 #fff;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -110px;
+  right: -75px;
+  border-radius: 50%;
+  background: #ffc3df;
+  filter: blur(20px);
+  opacity: .45;
+  animation: orb 6s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes orb {
+  to { transform: translate(-60px,70px) scale(1.4); }
+}
+
+.card > * { position: relative; }
+
+.pill {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: 50px;
+  background: #ffe5f1;
+  color: #c7558a;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  animation: pillPulse 2.5s infinite;
+}
+
+@keyframes pillPulse {
+  50% { box-shadow: 0 0 18px #ff9bc655; }
+}
+
+h1, h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #d64f91;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(38px, 10vw, 55px);
+  margin: 19px 0 13px;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+
+.muted { color: #ac8298; font-size: 12px; }
+
+.teddy {
+  display: block;
+  width: fit-content;
+  font-size: 77px;
+  margin: 12px auto 8px;
+  transform-origin: center bottom;
+  animation: teddyDance 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 12px 9px #ed8db53d);
+}
+
+@keyframes teddyDance {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  35% { transform: translateY(-11px) rotate(5deg); }
+  65% { transform: translateY(-4px) rotate(-3deg); }
+}
+
+.divider {
+  margin: 20px 0;
+  color: #f08cb8;
+  letter-spacing: 9px;
+  animation: dividerGlow 2s infinite alternate;
+}
+
+@keyframes dividerGlow {
+  to { letter-spacing: 13px; text-shadow: 0 0 12px #ff9fc8; }
+}
+
+/* BUTTONS */
+
+.btn {
+  border: 0;
+  border-radius: 50px;
+  padding: 13px 19px;
+  margin: 7px 4px;
+  background: linear-gradient(135deg, #ff91bd, #ed68a2);
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #e776a847;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 25px #e776a86b;
+}
+
+.btn:active { transform: scale(.96); }
+
+.btn.soft {
+  color: #bd5387;
+  background: white;
+  border: 1px solid #ffcade;
+  box-shadow: none;
+}
+
+/* LETTER */
+
+.letter {
+  text-align: left;
+  white-space: pre-line;
+  background: linear-gradient(145deg, #fff8fc, #fff0f7);
+  border: 1px dashed #ed9fc2;
+  border-radius: 23px;
+  padding: 21px 17px;
+  line-height: 2;
+  font-size: 13px;
+  box-shadow: inset 0 0 25px #ffc4df25;
+}
+
+.letter-title {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 27px;
+  color: #d64f91;
+  margin-bottom: 12px;
+}
+
+.promise {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: left;
+  padding: 13px;
+  margin: 12px 0;
+  border-radius: 19px;
+  background: #fff5fa;
+  border: 1px solid #ffe1ed;
+  transition: transform .3s, box-shadow .3s;
+  animation: promiseEntrance .6s both;
+}
+
+.promise:nth-child(2) { animation-delay: .1s; }
+.promise:nth-child(3) { animation-delay: .25s; }
+.promise:nth-child(4) { animation-delay: .4s; }
+
+.promise:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 22px #ed9fc326;
+}
+
+@keyframes promiseEntrance {
+  from { opacity: 0; transform: translateX(-15px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.promise .icon {
+  font-size: 29px;
+  animation: iconWiggle 3s infinite;
+}
+
+@keyframes iconWiggle {
+  0%,90%,100% { transform: rotate(0); }
+  93% { transform: rotate(-12deg); }
+  97% { transform: rotate(12deg); }
+}
+
+.promise b { font-size: 13px; }
+
+.promise small {
+  display: block;
+  color: #ac8298;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* SURPRISE */
+
+#surprise {
+  display: none;
+  margin-top: 20px;
+  padding: 22px 15px;
+  border: 1px solid #ffd0e3;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #fff1f8, #f4eaff);
+  animation: surprisePop .8s cubic-bezier(.2,1.5,.5,1) both;
+}
+
+@keyframes surprisePop {
+  from { opacity: 0; transform: scale(.5) rotate(-5deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.love-big {
+  font-family: 'Dancing Script', cursive;
+  color: #d94a91;
+  font-size: clamp(30px, 9vw, 43px);
+  animation: loveGlow 1.7s infinite alternate;
+}
+
+@keyframes loveGlow {
+  from { text-shadow: 0 0 2px #ff8dbb; transform: scale(1); }
+  to { text-shadow: 0 0 18px #ff77b4; transform: scale(1.04); }
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+  padding: 12px 15px 30px;
+  text-align: center;
+  color: #af8198;
+  font-size: 11px;
+  line-height: 2;
+}
+
+.progress {
+  height: 4px;
+  width: min(180px, 50%);
+  margin: 15px auto;
+  background: #ffffffa6;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 33.333%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #ff9cc6, #bd82ff);
+  transition: width .5s ease;
+}
+
+@media (max-width: 380px) {
+  .nav-btn { padding: 9px 12px; }
+  .card { padding: 23px 15px; }
+  .brand { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="aurora one"></div>
+<div class="aurora two"></div>
+
+<header>
+  <div class="brand">♡ For My Wifee Jii ♡</div>
+  <div class="subtitle">A LITTLE WORLD MADE WITH LOVE</div>
+</header>
+
+<nav>
+  <button class="nav-btn active" onclick="showPage(0)">♡ Home</button>
+  <button class="nav-btn" onclick="showPage(1)">💌 Love Letter</button>
+  <button class="nav-btn" onclick="showPage(2)">🎁 Surprise</button>
+</nav>
+
+<div class="progress">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<main>
+
+  <!-- PAGE ONE: THE WELCOME -->
+
+  <section class="page active">
+    <div class="card">
+      <div class="pill">A SPECIAL MESSAGE FOR YOU ✨</div>
+
+      <span class="teddy">🧸💗</span>
+
+      <h1>Hey, My Wifee Jii!</h1>
+
+      <p>
+        Aapki smile ke naam,<br>
+        aapke liye ek chhoti si duniya. 💕
+      </p>
+
+      <div class="divider">♡ ✧ ♡</div>
+
+      <p>
+        Kabhi-kabhi aapse baat karte karte
+        mujhe neend aa sakti hai...
+        <br>
+        Lekin iska matlab ye bilkul nahi
+        ki aapse baat karna kam special hai.
+      </p>
+
+      <p>
+        Aap mere din ka woh pyaara hissa hain
+        jisse baat karke chehre par smile aa jaati hai. 🥹
+      </p>
+
+      <button class="btn" onclick="showPage(1)">
+        Open Your Love Letter 💌
+      </button>
+
+      <p class="muted">Made especially for you, Wifee Jii 🌷</p>
+    </div>
+  </section>
+
+  <!-- PAGE TWO: THE LOVE LETTER -->
+
+  <section class="page">
+    <div class="card">
+      <div class="pill">OPEN WITH A LITTLE SMILE 💗</div>
+
+      <span class="teddy">💌🌷</span>
+
+      <h2>A Letter From Your Husband</h2>
+
+      <div class="letter">
+        <div class="letter-title">Meri Pyaari Wifee Jii ♡</div>
+
+        Meri sabse pyaari wifee jii,
+
+        Aapko pata hai, aapse baat karna mere din ke sabse special moments mein se ek hai. Chahe din kaisa bhi gaya ho, aapse baat karke dil ko ek alag sa sukoon milta hai. 🥹💗
+
+        Agar kabhi main baat karte karte so jaun, toh please ye mat sochiyega ki main aapko ignore kar raha hoon.
+
+        Main aapko hurt nahi karna chahta. Agar mujhe neend aa rahi hogi, toh main koshish karunga ki aapko pehle bata doon. Aur agar galti se so gaya, toh uthne ke baad aapse baat zaroor karunga.
+
+        Aapki feelings mere liye important hain. Aap naraz hongi toh main aapki baat sununga, samajhne ki koshish karunga aur hum dono milkar baat solve karenge.
+
+        Mujhe bas aapke saath aise hi chhoti-chhoti khushiyan share karni hain, aapko hasana hai aur aapke saath aur bhi pyaari memories banani hain. 🫶
+
+        Aap hamesha yaad rakhiye...
+
+        <b>Aap mere liye bahut special hain, Wifee Jii.</b>
+
+        With all my love,
+        <b>Your Husband ♡</b>
+      </div>
+
+      <div class="divider">♡ ✧ ♡</div>
+
+      <button class="btn" onclick="showPage(2)">
+        I Have One More Surprise 🎁
+      </button>
+
+      <button class="btn soft" onclick="showPage(0)">
+        ← Back to Home
+      </button>
+    </div>
+  </section>
+
+  <!-- PAGE THREE: THE SURPRISE -->
+
+  <section class="page">
+    <div class="card">
+      <div class="pill">YOUR LITTLE HAPPINESS BOX 🎀</div>
+
+      <span class="teddy">🐻‍❄️💞</span>
+
+      <h2>Three Little Promises</h2>
+
+      <p>From your husband, with lots of love. 💗</p>
+
+      <div class="promise">
+        <span class="icon">🌷</span>
+        <div>
+          <b>Promise No. 1</b>
+          <small>Main koshish karunga ki neend aaye toh aapko pehle bata doon.</small>
+        </div>
+      </div>
+
+      <div class="promise">
+        <span class="icon">🫶</span>
+        <div>
+          <b>Promise No. 2</b>
+          <small>Aap naraz hongi toh aapki feelings sununga aur samajhne ki koshish karunga.</small>
+        </div>
+      </div>
+
+      <div class="promise">
+        <span class="icon">💖</span>
+        <div>
+          <b>Promise No. 3</b>
+          <small>Hum dono ke time ko special banane ke liye effort karta rahunga.</small>
+        </div>
+      </div>
+
+      <div class="divider">♡ ♡ ♡</div>
+
+      <button class="btn" onclick="revealSurprise()">
+        Open Your Secret Surprise ✨
+      </button>
+
+      <div id="surprise">
+        <span class="teddy">🧸💐🥹</span>
+
+        <div class="love-big">A Big Hug For You!</div>
+
+        <p>
+          Meri pyaari Wifee Jii,<br>
+          imagine a warm teddy hug from your husband. 🫂
+        </p>
+
+        <p>
+          Aapka mood chahe jaisa bhi ho,
+          aapki baat sunna aur aapko samajhna important hai.
+          Chaliye, gussa thoda sa kam aur smiles thodi si zyada? 💗
+        </p>
+
+        <div class="love-big">I Love You! ♡</div>
+
+        <p>
+          Aapka loving husband,<br>
+          always cheering for your smile. 🌸
+        </p>
+
+        <button class="btn" onclick="hugExplosion()">
+          Send Me A Virtual Hug 🫂
+        </button>
+
+        <button class="btn soft" onclick="showPage(0)">
+          Start Our Little Story Again ↻
+        </button>
+      </div>
+
+      <button class="btn soft" onclick="showPage(1)">
+        ← Read My Letter Again
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Crafted with lots of love ♡<br>
+  For one very special Wifee Jii, from her Husband 💗<br>
+  <span id="footerText">A little reminder that you are loved.</span>
+</footer>
+
+<script>
+/* PAGE NAVIGATION */
+
+const pages = document.querySelectorAll('.page');
+const navButtons = document.querySelectorAll('.nav-btn');
+const progressBar = document.getElementById('progressBar');
+
+function showPage(index) {
+  pages.forEach((page, i) => {
+    page.classList.toggle('active', i === index);
+  });
+
+  navButtons.forEach((button, i) => {
+    button.classList.toggle('active', i === index);
+  });
+
+  progressBar.style.width = ((index + 1) / pages.length * 100) + '%';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  sparkleBurst(
+    window.innerWidth / 2,
+    Math.min(window.innerHeight * .35, 260),
+    9
+  );
+}
+
+/* FLOATING HEARTS, FLOWERS & STARS */
+
+const floatSymbols = ['💗', '💕', '♡', '🌸', '✨', '💖', '🎀'];
+
+function createFloatingItem() {
+  const item = document.createElement('span');
+  item.className = 'float-item';
+
+  item.textContent =
+    floatSymbols[Math.floor(Math.random() * floatSymbols.length)];
+
+  item.style.setProperty('--x', Math.random() * 100 + 'vw');
+  item.style.setProperty('--size', (13 + Math.random() * 20) + 'px');
+  item.style.setProperty('--duration', (6 + Math.random() * 7) + 's');
+
+  document.body.appendChild(item);
+
+  setTimeout(() => item.remove(), 14000);
+}
+
+setInterval(createFloatingItem, 480);
+
+/* SPARKLES AROUND YOUR TOUCH */
+
+function sparkleBurst(x, y, amount = 12) {
+  const symbols = ['✨', '💗', '💕', '✧', '🌸'];
+
+  for (let i = 0; i < amount; i++) {
+    const spark = document.createElement('span');
+    spark.className = 'sparkle';
+
+    spark.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    spark.style.left = x + 'px';
+    spark.style.top = y + 'px';
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 35 + Math.random() * 100;
+
+    spark.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+    spark.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
+
+    document.body.appendChild(spark);
+
+    setTimeout(() => spark.remove(), 850);
+  }
+}
+
+document.addEventListener('pointerdown', (event) => {
+  sparkleBurst(event.clientX, event.clientY, 5);
+});
+
+/* SURPRISE REVEAL */
+
+let surpriseOpened = false;
+
+function revealSurprise() {
+  const surprise = document.getElementById('surprise');
+  surprise.style.display = 'block';
+
+  if (!surpriseOpened) {
+    surpriseOpened = true;
+    hugExplosion();
+  } else {
+    sparkleBurst(window.innerWidth / 2, window.innerHeight / 2, 18);
+  }
+
+  setTimeout(() => {
+    surprise.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }, 150);
+}
+
+/* EXTRA LOVE EXPLOSION */
+
+function hugExplosion() {
+  const symbols = ['💗', '💖', '💕', '🫶', '🌸', '✨', '💝'];
+
+  for (let i = 0; i < 38; i++) {
+    setTimeout(() => {
+      const item = document.createElement('span');
+      item.className = 'float-item';
+      item.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+      item.style.setProperty('--x', Math.random() * 100 + 'vw');
+      item.style.setProperty('--size', (18 + Math.random() * 25) + 'px');
+      item.style.setProperty('--duration', (4 + Math.random() * 4) + 's');
+
+      document.body.appendChild(item);
+
+      setTimeout(() => item.remove(), 9000);
+    }, i * 45);
+  }
+
+  document.getElementById('footerText').textContent =
+    'Sending the biggest virtual hug to Wifee Jii! 🫂💗';
+}
+
+/* RANDOM LITTLE HEARTS IN THE BACKGROUND */
+for (let i = 0; i < 10; i++) {
+  setTimeout(createFloatingItem, i * 180);
+}
+</script>
+
+</body>
+</html>
